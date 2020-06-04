@@ -7,7 +7,7 @@ let id;
 articles.addEventListener("click", async function(e) {
     if(e.target.classList.contains("btn-edit")) {
         id = e.target.parentNode.parentNode.querySelector(".id").value;
-        let postInfo = await fetch("http://localhost:3000/posts/" + id)
+        let postInfo = await fetch("/posts/" + id)
         .then((resp) => resp.json()).then((data) => data);
         title.value = postInfo.title;
         textArea.value = postInfo.text;
@@ -21,7 +21,7 @@ articles.addEventListener("click", async function(e) {
     }
     updateForm.addEventListener("submit", function(e) {
         e.preventDefault();
-        fetch("http://localhost:3000/posts/" + id, {
+        fetch("/posts/" + id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

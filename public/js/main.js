@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 callMeForm.addEventListener("submit", function(e) {
 	e.preventDefault();
 	let formInput = callMeForm.querySelector("input");
-	fetch("http://localhost:3000/callback-request", {
+	fetch("/callback-request", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
